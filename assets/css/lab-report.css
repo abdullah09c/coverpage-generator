@@ -32,27 +32,128 @@ input:focus {
 }
 
 header {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
 }
 
 .logo-title {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.title-text h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.title-text p {
+  font-size: 14px;
+  margin: 2px 0 0 0;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 nav a {
-  margin-left: 20px;
+  color: white;
   text-decoration: none;
-  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+nav a:hover::before {
+  left: 100%;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav a:active {
+  transform: translateY(0);
+}
+
+/* Mobile responsive header */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 20px;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    top: auto;
+  }
+  
+  .logo-title {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .title-text h1 {
+    font-size: 18px;
+  }
+  
+  .title-text p {
+    font-size: 12px;
+  }
+  
+  nav {
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  nav a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
 }
 
 main {
@@ -207,8 +308,113 @@ main {
 }
 
 footer {
-  text-align: left;
-  padding: 15px 30px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  text-align: center;
+  padding: 25px 20px 15px 20px;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.footer-links a:hover {
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+
+.footer-bottom {
+  font-size: 14px;
+  color: #bdc3c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-heart {
+  color: #e74c3c;
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Mobile responsive footer */
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 15px 12px 15px;
+  }
+  
+  .footer-links {
+    gap: 20px;
+  }
+  
+  .footer-links a {
+    font-size: 14px;
+  }
+  
+  .footer-bottom {
+    font-size: 12px;
+    text-align: center;
+  }
 }
 
 /*pdf styles*/

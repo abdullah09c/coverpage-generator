@@ -15,13 +15,13 @@
     <div class="logo-title">
       <img src="assets/images/logo.png" alt="College Logo" class="logo" />
       <div class="title-text">
-        <h1>Textile Engineering College,Noakhali</h1>
-        <p>Begumganj, Noakhali ,Bangladesh</p>
+        <h1>Textile Engineering College, Noakhali</h1>
+        <p>Begumganj, Noakhali, Bangladesh</p>
       </div>
     </div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Contributor</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="#contributor">👥 Contributors</a>
     </nav>
   </header>
 
@@ -84,7 +84,27 @@
   </div>
 
   <footer>
-    <p>© 2025 NaniteX</p>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images/logo.png" alt="TEC Logo" />
+        <span>TEC Noakhali</span>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contributor">Contributors</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+      
+      
+      <div class="footer-bottom">
+        <span>© 2025 NaniteX</span>
+        <span>•</span>
+        <span>Made with <span class="footer-heart">♥</span> for TEC Students</span>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -97,6 +117,21 @@
                            String(today.getDate()).padStart(2, '0');
       dateInput.value = formattedDate;
     });
+
+    function printPDF() {
+      // Hide the buttons temporarily
+      const buttonContainer = document.querySelector('.button-container');
+      buttonContainer.style.display = 'none';
+
+      // Use the browser's print functionality
+      window.print();
+
+      // Show the buttons again after a delay
+      setTimeout(() => {
+        buttonContainer.style.display = 'flex';
+      }, 1000);
+    }
+
 function downloadPDF() {
   const buttonContainer = document.querySelector('.button-container');
   const element = document.querySelector('.report-container');
@@ -113,6 +148,7 @@ function downloadPDF() {
     },
     jsPDF: {
       unit: 'mm',
+      format: 'a4',
       orientation: 'portrait'
     },
     pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid breaks inside elements
