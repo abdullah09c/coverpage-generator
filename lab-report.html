@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.5" />
   <title>Lab Report Cover Page</title>
   <link rel="stylesheet" href="assets/css/lab-report.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
-
-  <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
 
   <header>
     <div class="logo-title">
@@ -28,6 +27,7 @@
 
   <main>
     <div class="report-container">
+      <div class="watermark"></div>
       <div class="header-section">
         <img src="assets/images/logo.png" alt="College Logo" class="logo-center" />
         <h2>Textile Engineering College, Noakhali</h2>
@@ -69,44 +69,61 @@
             <div><label>Session:</label><input type="text" placeholder="Enter Session" class="submission-input" /></div>
           </div>
         </div>
+        
+        <div class="date-section">
+          <label for="submission-date">Date of Submission:</label>
+          <input type="date" id="submission-date" class="date-input" />
+        </div>
       </div>
     </div>
   </main>
+
+  <div class="button-container">
+    <button class="print-btn" onclick="printPDF()">📄 Print</button>
+    <button class="download-btn" onclick="downloadPDF()">📥 Download PDF</button>
+  </div>
 
   <footer>
     <p>© 2025 NaniteX</p>
   </footer>
 
   <script>
-    function downloadPDF() {
-      // Hide the download button temporarily
-      const downloadBtn = document.querySelector('.download-btn');
-      downloadBtn.style.display = 'none';
+    // Set current date when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.getElementById('submission-date');
+      const today = new Date();
+      const formattedDate = today.getFullYear() + '-' + 
+                           String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                           String(today.getDate()).padStart(2, '0');
+      dateInput.value = formattedDate;
+    });
+function downloadPDF() {
+  const buttonContainer = document.querySelector('.button-container');
+  const element = document.querySelector('.report-container');
 
-      // Use the browser's print functionality to save as PDF
-      window.print();
+  // Add print-mode styles if needed
+  document.body.classList.add('print-mode');
 
-      // Show the download button again after a delay
-      setTimeout(() => {
-        downloadBtn.style.display = 'block';
-      }, 1000);
-    }
+  const opt = {
+    filename: 'lab-report.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: {
+      useCORS: true,
+      scrollY: 0
+    },
+    jsPDF: {
+      unit: 'mm',
+      orientation: 'portrait'
+    },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid breaks inside elements
+  };
 
-    // Alternative method using html2pdf library (commented out)
-    // You can uncomment this if you want to use html2pdf library instead
-    /*
-    function downloadPDF() {
-      const element = document.querySelector('.report-container');
-      const opt = {
-        margin: 0,
-        filename: 'lab-report.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-    }
-    */
+  html2pdf().set(opt).from(element).save().then(() => {
+    document.body.classList.remove('print-mode');
+  });
+}
+
+
   </script>
 
 </body>

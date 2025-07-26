@@ -10,7 +10,6 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 18px;
-  
 }
 
 label {
@@ -24,6 +23,9 @@ input {
   margin-left: 10px;
   outline: none;
   font-size: 18px;
+}
+input:hover {
+  cursor: pointer;
 }
 input:focus {
   border-bottom: 2px solid #000;
@@ -65,11 +67,14 @@ main {
   min-width: 210mm;
   min-height: 297mm;
   padding: 50px;
+  margin: 20px;
   border: 1px solid #000;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
 }
 
 .report-container img.logo-center {
@@ -84,6 +89,22 @@ main {
 .report-container p {
   margin-top: 5px;
   margin-bottom: 15px;
+}
+
+.watermark {
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  width: 60%;
+  height: 60%;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .department {
@@ -142,11 +163,23 @@ main {
   margin: 5px 0;
 }
 
+.date-section {
+  margin-top: 30px;
+}
 
-.download-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+.date-section label {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+}
+
+.download-btn, .print-btn {
   background: linear-gradient(45deg, #007bff, #0056b3);
   color: white;
   border: none;
@@ -160,52 +193,98 @@ main {
   z-index: 1000;
 }
 
-.download-btn:hover {
+.download-btn:hover, .print-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.download-btn:active {
+.download-btn:active, .print-btn:active {
   transform: translateY(0);
 }
 
-.watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.05;
-  width: 60%;
-  z-index: 0;
+.download-btn {
+  background: linear-gradient(45deg, #28a745, #20c997);
 }
-
 
 footer {
   text-align: left;
   padding: 15px 30px;
 }
 
+/*pdf styles*/
 
+.print-mode .report-container {
+  border: none;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 50px;
+}
+
+.print-mode .watermark {
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+  width: 60%;
+  height: 60%;
+  z-index: 1;
+  pointer-events: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.print-mode header,
+.print-mode footer,
+.print-mode .print-btn,
+.print-mode .download-btn,
+.print-mode .button-container {
+  display: none !important;
+}
+
+.print-mode main {
+  padding: 0;
+}
+
+
+/* Print styles */
 
 @media print {
   @page {
     size: A4;
     margin: 0;
   }
-  body {
-    background: white;
-    margin: 0;
-    padding: 0;
-  }
 
   .report-container {
-    box-shadow: none;
     border: none;
     page-break-after: always;
     width: 100%;
     height: 100vh;
     margin: 0;
     padding: 50px;
+  }
+
+  .watermark {
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.05;
+    width: 60%;
+    height: 60%;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   header,
@@ -217,7 +296,7 @@ footer {
     padding: 0;
   }
 
-  .download-btn {
+  .print-btn, .download-btn, .button-container {
     display: none;
   }
 }
