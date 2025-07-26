@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
   <header>
     <div class="logo-title">
       <img src="assets/images/logo.png" alt="College Logo" class="logo" />
@@ -39,17 +38,16 @@
       </div>
 
       <div class="content-section">
-
         <div class="input-box">
           <label for="lab-title">Lab Report On:</label>
-          <input type="text" id="lab-title" placeholder="Enter Lab Title Here" />
+          <textarea id="lab-title" placeholder="Enter Lab Report Title" class="lab-title-input name-input" rows="1"></textarea>
         </div>
 
         <div class="course-details">
-          <label for="course-code">Course Code: <input type="text" id="course-code"
-              placeholder="Enter Course Code" /></label>
-          <label for="course-name">Course Name: <input type="text" id="course-name"
-              placeholder="Enter Course Name" /></label>
+          <label for="course-code" class="course-child">Course Code:
+            <input type="text" id="course-code" placeholder="Enter Course Code" /></label>
+          <label for="course-name" class="course-child">Course Name:
+            <textarea type="text" id="course-name" placeholder="Enter Course Name" class=" name-input" rows="1"></textarea></label>
         </div>
       </div>
 
@@ -57,19 +55,28 @@
         <div class="submission">
           <div class="submission-box">
             <strong>SUBMITTED TO:</strong>
-            <div><label>Name:</label><input type="text" placeholder="Enter Teacher Name" class="submission-input" /></div>
-            <div><label>Designation:</label><input type="text" placeholder="Enter Designation" class="submission-input" /></div>
-            <div><label>Institution:</label><input type="text" placeholder="Enter Institution" class="submission-input" />
+            <div>
+              <textarea placeholder="Enter Teacher Name" class="submission-input name-input" rows="1"></textarea>
+            </div>
+            <div><input type="text" placeholder="Enter Designation" class="submission-input" /></div>
+            <div>
+              <textarea placeholder="Enter Institution Name" class="submission-input name-input" rows="1"></textarea>
             </div>
           </div>
           <div class="submission-box">
             <strong>SUBMITTED BY:</strong>
-            <div><label>Name:</label><input type="text" placeholder="Enter Student Name" class="submission-input" /></div>
+            <div><label>Name:</label><textarea placeholder="Enter Student Name" class="submission-input name-input"
+                rows="1"></textarea>
+            </div>
             <div><label>Roll No:</label><input type="text" placeholder="Enter Roll No" class="submission-input" /></div>
             <div><label>Session:</label><input type="text" placeholder="Enter Session" class="submission-input" /></div>
+            <div class="level-term">
+              <div><label>Level:</label><textarea cols="5" rows="1" placeholder="Enter" class="submission-input"></textarea></div>
+              <div><label>Term:</label><textarea cols="5" rows="1" placeholder="Enter" class="submission-input "></textarea></div>
+            </div>
           </div>
         </div>
-        
+
         <div class="date-section">
           <label for="submission-date">Date of Submission:</label>
           <input type="date" id="submission-date" class="date-input" />
@@ -80,16 +87,16 @@
 
   <div class="button-container">
     <button class="print-btn" onclick="printPDF()">📄 Print</button>
-    <button class="download-btn" onclick="downloadPDF()">📥 Download PDF</button>
+    <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
   </div>
 
   <footer>
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="assets/images/logo.png" alt="TEC Logo" />
-        <span>TEC Noakhali</span>
+        <img src="assets/images/nanitex.png" alt="TEC Logo" />
+        <span>NaniteX</span>
       </div>
-      
+      <p>A Software Solution Company</p>
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -97,71 +104,102 @@
         <a href="#contributor">Contributors</a>
         <a href="#privacy">Privacy</a>
       </div>
-      
-      
+
       <div class="footer-bottom">
         <span>© 2025 NaniteX</span>
         <span>•</span>
-        <span>Made with <span class="footer-heart">♥</span> for TEC Students</span>
+        <span>Made for TECN</span>
       </div>
     </div>
   </footer>
 
   <script>
     // Set current date when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      const dateInput = document.getElementById('submission-date');
+    document.addEventListener("DOMContentLoaded", function () {
+      const dateInput = document.getElementById("submission-date");
       const today = new Date();
-      const formattedDate = today.getFullYear() + '-' + 
-                           String(today.getMonth() + 1).padStart(2, '0') + '-' + 
-                           String(today.getDate()).padStart(2, '0');
+      const formattedDate =
+        today.getFullYear() +
+        "-" +
+        String(today.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(today.getDate()).padStart(2, "0");
       dateInput.value = formattedDate;
     });
 
     function printPDF() {
       // Hide the buttons temporarily
-      const buttonContainer = document.querySelector('.button-container');
-      buttonContainer.style.display = 'none';
+      const buttonContainer = document.querySelector(".button-container");
+      buttonContainer.style.display = "none";
 
       // Use the browser's print functionality
       window.print();
 
       // Show the buttons again after a delay
       setTimeout(() => {
-        buttonContainer.style.display = 'flex';
+        buttonContainer.style.display = "flex";
       }, 1000);
     }
 
-function downloadPDF() {
-  const buttonContainer = document.querySelector('.button-container');
-  const element = document.querySelector('.report-container');
+    function downloadPDF() {
+      const buttonContainer = document.querySelector(".button-container");
+      const element = document.querySelector(".report-container");
 
-  // Add print-mode styles if needed
-  document.body.classList.add('print-mode');
+      // Add print-mode styles if needed
+      document.body.classList.add("print-mode");
 
-  const opt = {
-    filename: 'lab-report.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: {
-      useCORS: true,
-      scrollY: 0
-    },
-    jsPDF: {
-      unit: 'mm',
-      format: 'a4',
-      orientation: 'portrait'
-    },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Avoid breaks inside elements
-  };
+      const opt = {
+        filename: "lab-report.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+          useCORS: true,
+          scrollY: 0,
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+        },
+        pagebreak: { mode: ["avoid-all", "css", "legacy"] }, // Avoid breaks inside elements
+      };
 
-  html2pdf().set(opt).from(element).save().then(() => {
-    document.body.classList.remove('print-mode');
-  });
-}
+      html2pdf()
+        .set(opt)
+        .from(element)
+        .save()
+        .then(() => {
+          document.body.classList.remove("print-mode");
+        });
+    }
 
+    // Auto-resize functionality for name input textareas
+    function autoResize(textarea) {
+      // Reset height to auto to get the actual scroll height
+      textarea.style.height = 'auto';
+      // Set height to scroll height to show all content
+      textarea.style.height = textarea.scrollHeight + 'px';
+    }
 
+    // Initialize auto-resize for existing textareas and handle future ones
+    document.addEventListener("DOMContentLoaded", function () {
+      const nameInputs = document.querySelectorAll(".name-input");
+
+      nameInputs.forEach((textarea) => {
+        // Set initial height
+        autoResize(textarea);
+
+        // Add event listener for input changes
+        textarea.addEventListener("input", function () {
+          autoResize(this);
+        });
+
+        // Handle paste events
+        textarea.addEventListener("paste", function () {
+          setTimeout(() => autoResize(this), 0);
+        });
+      });
+    });
   </script>
-
 </body>
 
 </html>
