@@ -18,8 +18,8 @@ label {
   margin: 5px 0;
 }
 
-
-textarea,input {
+textarea,
+input {
   resize: none;
   font-family: inherit;
   font-size: inherit;
@@ -31,13 +31,14 @@ textarea,input {
   margin-left: 10px;
 }
 
-input:hover, textarea:hover {
+input:hover,
+textarea:hover {
   cursor: pointer;
 }
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-bottom: 2px solid #000;
 }
-
 
 header {
   background: linear-gradient(135deg, #2c3e50, #34495e);
@@ -178,9 +179,10 @@ main {
 }
 
 .report-container {
-  min-width: 225mm;
-  min-height: 297mm;
-  padding: 50px;
+  width: 225mm;
+  height: 297mm;
+  padding: 20mm;
+  background: white;
   margin: 20px;
   border: 1px solid #000;
   text-align: center;
@@ -242,7 +244,7 @@ main {
 }
 
 .content-section {
-  margin-top : -125px;
+  margin-top: -125px;
 }
 
 .input-box {
@@ -257,13 +259,14 @@ main {
   text-align: center;
 }
 
-.course-child{
+.course-child {
   display: flex;
   justify-content: center;
   margin: 10px 0;
 }
 
-.course-child input, textarea {
+.course-child input,
+textarea {
   width: 30%;
 }
 
@@ -313,8 +316,6 @@ main {
   line-height: 1.2;
 }
 
-
-
 .submission-input:focus {
   border-bottom: 2px solid #000;
 }
@@ -336,7 +337,7 @@ main {
 }
 
 .level-term textarea {
-  width:fit-content;
+  width: fit-content;
   margin: 0;
   margin-left: 5px;
   padding: 2px 5px 0 5px;
@@ -358,7 +359,6 @@ main {
   margin: 20px auto;
 }
 
-.download-btn,
 .print-btn {
   background: linear-gradient(45deg, #007bff, #0056b3);
   color: white;
@@ -373,19 +373,13 @@ main {
   z-index: 1000;
 }
 
-.download-btn:hover,
 .print-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.download-btn:active,
 .print-btn:active {
   transform: translateY(0);
-}
-
-.download-btn {
-  background: linear-gradient(45deg, #28a745, #20c997);
 }
 
 footer {
@@ -418,7 +412,7 @@ footer-logo span {
   font-size: 25px;
 }
 
-.footer-content p{
+.footer-content p {
   font-size: 16px;
   gap: 0;
   margin-top: -10px;
@@ -551,7 +545,6 @@ footer-logo span {
   }
 
   .print-btn,
-  .download-btn,
   .button-container {
     display: none;
   }
