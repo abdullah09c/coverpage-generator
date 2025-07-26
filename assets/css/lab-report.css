@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 18px;
+  
 }
 
 label {
@@ -185,16 +186,12 @@ footer {
 }
 
 
-/* Mobile Responsive - Zoom Out Effect */
-
-/* @media (max-width: 480px) {
-  body {
-    zoom: .3;
-    max-height: 100vh;
-  }
-} */
 
 @media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
   body {
     background: white;
     margin: 0;
