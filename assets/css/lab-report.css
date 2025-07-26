@@ -177,8 +177,8 @@ main {
 }
 
 .report-container {
-  width: 210mm;
   height: 297mm;
+  width: 210mm;
   min-width: 210mm;
   min-height: 297mm;
   padding: 10mm;
@@ -360,6 +360,7 @@ textarea {
   margin: 20px auto;
 }
 
+.download-btn,
 .print-btn {
   background: linear-gradient(45deg, #007bff, #0056b3);
   color: white;
@@ -374,13 +375,19 @@ textarea {
   z-index: 1000;
 }
 
+.download-btn:hover,
 .print-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.download-btn:active,
 .print-btn:active {
   transform: translateY(0);
+}
+
+.download-btn {
+  background: linear-gradient(45deg, #28a745, #20c997);
 }
 
 footer {
@@ -535,7 +542,9 @@ footer-logo span {
   }
 
   .print-btn,
+  .download-btn,
   .button-container {
     display: none;
   }
 }
+
