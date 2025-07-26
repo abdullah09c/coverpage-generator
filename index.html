@@ -2,39 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Textile Engineering College</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+  <title>Lab Dashboard</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js"></script>
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
 </head>
 <body>
 
-  <header>
+   <header>
     <div class="logo-title">
-      <a href="index.html">
-        <img src="/assets/images/logo.png" alt="College Logo" class="logo" />
-      </a>
+      <img src="assets/images/logo.png" alt="College Logo" class="logo" />
       <div class="title-text">
-        <h1>Textile Engineering College,Noakhali</h1>
-        <p>Begumganj, Noakhali ,Bangladesh</p>
+        <h1>Textile Engineering College, Noakhali</h1>
+        <p>Begumganj, Noakhali, Bangladesh</p>
       </div>
     </div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="contributor.html">Contributor</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="#contributor">👥 Contributors</a>
     </nav>
   </header>
 
   <main>
-    <div class="card">
-      <button><a href="lab-report.html">Lab Report</a></button>
-      <button><a href="experiment-identification.html">Experiment Identification</a></button>
-      <button><a href="assignment.html">Assignment</a></button>
-      <button><a href="index-page.html">Index Page</a></button>
+    <div class="cards-container">
+
+      <a href="lab-report.html" class="card card-blue">
+        <div class="card-icon icon-blue">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6H5a2 2 0 012-2h6v8a2 2 0 11-4 0z" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">Lab Report</h2>
+        </div>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+
+      <a href="#" class="card card-green">
+        <div class="card-icon icon-green">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405M15 7h5l-1.405 1.405M10 6H5a2 2 0 00-2 2v8a2 2 0 002 2h5" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">Experiment Identification</h2>
+        </div>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+
+      <a href="#" class="card card-yellow">
+        <div class="card-icon icon-yellow">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M5 20h.01M19 20v-2a2 2 0 00-2-2h-4M3 7h14M3 7v11a2 2 0 002 2h4M3 7L7 3h10a1 1 0 011 1v2" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">Assignment</h2>
+        </div>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+
+      <a href="#" class="card card-purple">
+        <div class="card-icon icon-purple">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h8m-8 4h8" />
+          </svg>
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">Index Page</h2>
+        </div>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+
     </div>
   </main>
 
-  <footer>
-    <p>© 2025 NaniteX</p>
+ <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images/nanitex.png" alt="TEC Logo" />
+        <span>NaniteX</span>
+      </div>
+      <p>A Software Solution Company</p>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contributor">Contributors</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 NaniteX</span>
+        <span>•</span>
+        <span>Made for TECN</span>
+      </div>
+    </div>
   </footer>
 
 </body>
