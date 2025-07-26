@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Report Cover Page</title>
+  <link rel="stylesheet" href="assets/css/lab-report.css" />
+</head>
+
+<body>
+
+  <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
+
+  <header>
+    <div class="logo-title">
+      <img src="assets/images/logo.png" alt="College Logo" class="logo" />
+      <div class="title-text">
+        <h1>Textile Engineering College,Noakhali</h1>
+        <p>Begumganj, Noakhali ,Bangladesh</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Contributor</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="report-container">
+      <div class="header-section">
+        <img src="assets/images/logo.png" alt="College Logo" class="logo-center" />
+        <h2>Textile Engineering College, Noakhali</h2>
+        <p>Begumganj, Noakhali</p>
+        <div class="department">
+          Department of
+          <input type="text" placeholder="Enter Department Name" class="department-input" />
+        </div>
+      </div>
+
+      <div class="content-section">
+
+        <div class="input-box">
+          <label for="lab-title">Lab Report On:</label>
+          <input type="text" id="lab-title" placeholder="Enter Lab Title Here" />
+        </div>
+
+        <div class="course-details">
+          <label for="course-code">Course Code: <input type="text" id="course-code"
+              placeholder="Enter Course Code" /></label>
+          <label for="course-name">Course Name: <input type="text" id="course-name"
+              placeholder="Enter Course Name" /></label>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <div class="submission">
+          <div class="submission-box">
+            <strong>SUBMITTED TO:</strong>
+            <div><label>Name:</label><input type="text" placeholder="Enter Teacher Name" class="submission-input" /></div>
+            <div><label>Designation:</label><input type="text" placeholder="Enter Designation" class="submission-input" /></div>
+            <div><label>Institution:</label><input type="text" placeholder="Enter Institution" class="submission-input" />
+            </div>
+          </div>
+          <div class="submission-box">
+            <strong>SUBMITTED BY:</strong>
+            <div><label>Name:</label><input type="text" placeholder="Enter Student Name" class="submission-input" /></div>
+            <div><label>Roll No:</label><input type="text" placeholder="Enter Roll No" class="submission-input" /></div>
+            <div><label>Session:</label><input type="text" placeholder="Enter Session" class="submission-input" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 NaniteX</p>
+  </footer>
+
+  <script>
+    function downloadPDF() {
+      // Hide the download button temporarily
+      const downloadBtn = document.querySelector('.download-btn');
+      downloadBtn.style.display = 'none';
+
+      // Use the browser's print functionality to save as PDF
+      window.print();
+
+      // Show the download button again after a delay
+      setTimeout(() => {
+        downloadBtn.style.display = 'block';
+      }, 1000);
+    }
+
+    // Alternative method using html2pdf library (commented out)
+    // You can uncomment this if you want to use html2pdf library instead
+    /*
+    function downloadPDF() {
+      const element = document.querySelector('.report-container');
+      const opt = {
+        margin: 0,
+        filename: 'lab-report.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+    */
+  </script>
+
+</body>
+
+</html>
