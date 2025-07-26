@@ -186,26 +186,13 @@ footer {
 
 
 /* Mobile Responsive - Zoom Out Effect */
-@media screen and (max-width: 768px) {
-  body {
-    zoom: 1;
-    min-width: 100vw;
-  }
-  
-  .download-btn {
-    zoom: 1;
-  }
-}
 
-@media screen and (max-width: 480px) {
+/* @media (max-width: 480px) {
   body {
     zoom: .3;
     max-height: 100vh;
   }
-  .download-btn {
-    zoom: 1;
-  }
-}
+} */
 
 @media print {
   body {
