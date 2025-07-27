@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.45" />
+  <title>Experiment Identification</title>
+  <link rel="stylesheet" href="assets/css/experiment.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="assets/js/report.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="assets/images/logo.png" alt="College Logo" class="logo" />
+      <div class="title-text">
+        <h1>Textile Engineering College, Noakhali</h1>
+        <p>Begumganj, Noakhali, Bangladesh</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="#contributor">👥 Contributors</a>
+    </nav>
+  </header>
+  <main>
+    <div class="experiment-container">
+      <div class="watermark"></div>
+      <div class="header-section">
+        <img src="assets/images/logo.png" alt="College Logo" class="logo-center" />
+        <h2>Textile Engineering College, Noakhali</h2>
+        <p>Begumganj, Noakhali</p>
+      </div>
+      <div class="content-section">
+        <div class="personal-details">
+          <h2>Personal Details:</h2>
+          <div class="info">
+            <label for="name">Name</label>
+            <span>:</span>
+            <input type="text" name="name" id="name" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="id">ID No.</label>
+            <span>:</span>
+            <input type="text" name="id" id="id" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="dept">Department</label>
+            <span>:</span>
+            <input type="text" name="dept" id="dept" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="session">Session</label>
+            <span>:</span>
+            <input type="text" name="session" id="session" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="level">Level</label>
+            <span>:</span>
+            <input type="text" name="level" id="level" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="term">Term</label>
+            <span>:</span>
+            <input type="text" name="term" id="term" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="course-name">Course Name</label>
+            <span>:</span>
+            <input type="text" name="course-name" id="course-name" class="info-input" />
+          </div>
+        </div>
+        <div class="experiment">
+          <h2>Experiment Identification:</h2>
+          <div class="info">
+            <label for="subject">Subject</label>
+            <span>:</span>
+            <input type="text" name="subject" id="subject" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="sub-code">Subject Code</label>
+            <span>:</span>
+            <input type="text" name="sub-code" id="sub-code" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="exp-no">Experiment No.</label>
+            <span>:</span>
+            <input type="text" name="exp-no" id="exp-no" class="info-input" />
+          </div>
+          <div class="info">
+            <label for="exp-name">Experiment Name</label>
+            <span>:</span>
+            <textarea name="exp-name" id="exp-name" class="info-input name-input" rows="1"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="date-section">
+        <label for="submission-date">Date of Submission:</label>
+        <input type="date" id="submission-date" class="date-input" />
+      </div>
+    </div>
+  </main>
+  <div class="button-container">
+    <button class="print-btn" onclick="printPDF()">📄 Print</button>
+    <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images/nanitex.png" alt="TEC Logo" />
+        <span>NaniteX</span>
+      </div>
+      <p>A Software Solution Company</p>
+
+      <div class="footer-bottom">
+        <span>© 2025 NaniteX</span>
+        <span>•</span>
+        <span>Made for TECN</span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

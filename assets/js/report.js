@@ -26,13 +26,13 @@ function printPDF() {
 }
 
 function downloadPDF() {
-  // Get the report container element
-  const reportContainer = document.querySelector('.report-container');
+  // Get the report container element (check both possible containers)
+  const reportContainer = document.querySelector('.report-container') || document.querySelector('.experiment-container');
   const buttonContainer = document.querySelector(".button-container");
   const body = document.body;
   
   if (!reportContainer) {
-    alert('Report container not found!');
+    alert('Report/Experiment container not found!');
     return;
   }
 
