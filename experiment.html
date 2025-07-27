@@ -3,26 +3,35 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.45" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Experiment Identification</title>
   <link rel="stylesheet" href="assets/css/experiment.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="assets/js/report.js"></script>
+  <script src="assets/js/main.js"></script>
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>
   <header>
     <div class="logo-title">
-      <img src="assets/images/logo.png" alt="College Logo" class="logo" />
+      <a href="index.html"><img src="assets/images/logo.png" alt="College Logo" class="logo" /></a>
       <div class="title-text">
         <h1>Textile Engineering College, Noakhali</h1>
         <p>Begumganj, Noakhali, Bangladesh</p>
       </div>
     </div>
-    <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="#contributor">👥 Contributors</a>
-    </nav>
+    <div class="nav-container">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="#contributor">👥 Contributors</a>
+      </nav>
+    </div>
   </header>
   <main>
     <div class="experiment-container">
@@ -38,37 +47,37 @@
           <div class="info">
             <label for="name">Name</label>
             <span>:</span>
-            <input type="text" name="name" id="name" class="info-input" />
+            <input type="text" name="name" id="name" class="info-input" placeholder="Enter Student Name" />
           </div>
           <div class="info">
             <label for="id">ID No.</label>
             <span>:</span>
-            <input type="text" name="id" id="id" class="info-input" />
+            <input type="text" name="id" id="id" class="info-input" placeholder="Enter Student ID" />
           </div>
           <div class="info">
             <label for="dept">Department</label>
             <span>:</span>
-            <input type="text" name="dept" id="dept" class="info-input" />
+            <input type="text" name="dept" id="dept" class="info-input" placeholder="Enter Department Name" />
           </div>
           <div class="info">
             <label for="session">Session</label>
             <span>:</span>
-            <input type="text" name="session" id="session" class="info-input" />
+            <input type="text" name="session" id="session" class="info-input" placeholder="Enter Session" />
           </div>
           <div class="info">
             <label for="level">Level</label>
             <span>:</span>
-            <input type="text" name="level" id="level" class="info-input" />
+            <input type="text" name="level" id="level" class="info-input" placeholder="Enter Level" />
           </div>
           <div class="info">
             <label for="term">Term</label>
             <span>:</span>
-            <input type="text" name="term" id="term" class="info-input" />
+            <input type="text" name="term" id="term" class="info-input" placeholder="Enter Term" />
           </div>
           <div class="info">
             <label for="course-name">Course Name</label>
             <span>:</span>
-            <input type="text" name="course-name" id="course-name" class="info-input" />
+            <input type="text" name="course-name" id="course-name" class="info-input" placeholder="Enter Course Name" />
           </div>
         </div>
         <div class="experiment">
@@ -76,22 +85,22 @@
           <div class="info">
             <label for="subject">Subject</label>
             <span>:</span>
-            <input type="text" name="subject" id="subject" class="info-input" />
+            <input type="text" name="subject" id="subject" class="info-input" placeholder="Enter Subject Name" />
           </div>
           <div class="info">
             <label for="sub-code">Subject Code</label>
             <span>:</span>
-            <input type="text" name="sub-code" id="sub-code" class="info-input" />
+            <input type="text" name="sub-code" id="sub-code" class="info-input" placeholder="Enter Subject Code" />
           </div>
           <div class="info">
             <label for="exp-no">Experiment No.</label>
             <span>:</span>
-            <input type="text" name="exp-no" id="exp-no" class="info-input" />
+            <input type="text" name="exp-no" id="exp-no" class="info-input" placeholder="Enter Experiment Number" />
           </div>
           <div class="info">
             <label for="exp-name">Experiment Name</label>
             <span>:</span>
-            <textarea name="exp-name" id="exp-name" class="info-input name-input" rows="1"></textarea>
+            <textarea name="exp-name" id="exp-name" class="info-input name-input" rows="1" placeholder="Enter Experiment Name"></textarea>
           </div>
         </div>
       </div>
