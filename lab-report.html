@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.45" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lab Report Cover Page</title>
   <link rel="stylesheet" href="assets/css/lab-report.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="assets/js/report.js"></script>
+  <script src="assets/js/main.js"></script>
   <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
 </head>
 
@@ -20,10 +21,17 @@
         <p>Begumganj, Noakhali, Bangladesh</p>
       </div>
     </div>
-    <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="#contributor">👥 Contributors</a>
-    </nav>
+    <div class="nav-container">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="#contributor">👥 Contributors</a>
+      </nav>
+    </div>
   </header>
 
   <main>
