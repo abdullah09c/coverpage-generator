@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lab Dashboard</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/main.js"></script>
@@ -18,10 +18,17 @@
         <p>Begumganj, Noakhali, Bangladesh</p>
       </div>
     </div>
-    <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="#contributor">👥 Contributors</a>
-    </nav>
+    <div class="nav-container">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="#contributor">👥 Contributors</a>
+      </nav>
+    </div>
   </header>
 
   <main>
