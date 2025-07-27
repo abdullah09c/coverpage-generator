@@ -111,7 +111,7 @@ nav a:active {
 /* Mobile responsive header */
 @media (max-width: 768px) {
   header {
-    min-width: 210mm;;
+    min-width: 210mm;
     padding: 12px 10px;
     position: relative;
     top: auto;
@@ -271,7 +271,7 @@ footer {
   background: linear-gradient(135deg, #2c3e50, #34495e);
   color: white;
   text-align: center;
-  padding: 25px 20px 15px 20px;
+  padding: 10px 20px;
   margin-top: auto;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -360,6 +360,7 @@ footer-logo span {
 @media (max-width: 768px) {
   footer {
     padding: 20px 15px 12px 15px;
+    min-width: 210mm;
   }
 
   .footer-links {
