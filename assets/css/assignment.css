@@ -74,7 +74,7 @@ header {
 }
 
 .title-text h1 {
-  font-size: 22px;
+  font-size: clamp(16px, 4vw, 22px);
   font-weight: 700;
   margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -82,23 +82,69 @@ header {
 }
 
 .title-text p {
-  font-size: 14px;
+  font-size: clamp(11px, 2.5vw, 14px);
   margin: 2px 0 0 0;
   opacity: 0.9;
   font-weight: 400;
 }
 
-nav {
+.nav-container {
+  position: relative;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  display: block;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.nav-menu {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
-nav a {
+.nav-menu a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   padding: 8px 16px;
   border-radius: 25px;
   transition: all 0.3s ease;
@@ -106,7 +152,7 @@ nav a {
   overflow: hidden;
 }
 
-nav a::before {
+.nav-menu a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -122,49 +168,71 @@ nav a::before {
   transition: left 0.5s;
 }
 
-nav a:hover::before {
+.nav-menu a:hover::before {
   left: 100%;
 }
 
-nav a:hover {
+.nav-menu a:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-nav a:active {
+.nav-menu a:active {
   transform: translateY(0);
 }
 
 /* Mobile responsive header */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   header {
-    padding: 12px 10px;
+    padding: 15px 20px;
     position: relative;
-    top: auto;
   }
 
   .logo-title {
-    justify-content: center;
+    justify-content: flex-start;
+    text-align: left;
+    flex: 1;
+    padding-right: 60px; /* Make space for hamburger button */
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    gap: 8px;
+    min-width: 150px;
+    z-index: 1000;
+    margin-top: 10px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu a {
+    padding: 8px 12px;
     text-align: center;
-  }
-
-  .title-text h1 {
-    font-size: 18px;
-  }
-
-  .title-text p {
-    font-size: 12px;
-  }
-
-  nav {
-    justify-content: center;
-    gap: 20px;
-  }
-
-  nav a {
-    font-size: 14px;
-    padding: 5px;
+    white-space: nowrap;
   }
 }
 
@@ -235,10 +303,9 @@ main {
   border: none;
   font-weight: bold;
   outline: none;
-  width: 50%;
   font-size: 20px;
   text-align: center;
-
+  width: 100%;
 }
 
 .department-input:focus {
@@ -259,6 +326,7 @@ main {
   width: 100%;
   padding: 10px;
   text-align: center;
+  margin: 0;
 }
 
 .course-child {
@@ -269,13 +337,14 @@ main {
 
 .course-child input,
 textarea {
-  width: 30%;
+  width: 50%;
 }
 
 .submission {
   display: flex;
   justify-content: center;
   text-align: left;
+  flex-wrap: wrap;
 }
 
 .submission-box {
@@ -283,6 +352,8 @@ textarea {
   border: 1px solid #000;
   padding: 20px;
   min-height: 120px;
+  flex: 1;
+  min-width: 280px;
 }
 
 .submission-box div {
@@ -419,16 +490,16 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
+  font-size: clamp(16px, 3vw, 18px);
   font-weight: bold;
 }
 
 footer-logo span {
-  font-size: 25px;
+  font-size: clamp(20px, 4vw, 25px);
 }
 
 .footer-content p {
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   gap: 0;
   margin-top: -10px;
 }
@@ -450,6 +521,7 @@ footer-logo span {
   color: #ecf0f1;
   text-decoration: none;
   font-weight: 500;
+  font-size: clamp(12px, 2vw, 14px);
   transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
 }
@@ -476,13 +548,54 @@ footer-logo span {
 }
 
 .footer-bottom {
-  font-size: 14px;
+  font-size: clamp(11px, 2vw, 14px);
   color: #bdc3c7;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+/* Mobile responsive main and report container */
+@media screen and (max-width: 768px) {
+  main {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .report-container {
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    min-width: auto !important;
+    margin: 0 !important;
+    padding: 15px !important;
+  }
+
+  .report-container img.logo-center {
+    width: 120px;
+  }
+
+  .content-section {
+    margin-top: -35px;
+  }
+
+
+  .submission {
+    flex-direction: column;
+  }
+
+  .submission-box {
+    width: 100%;
+    min-width: auto;
+  }
+  #roll-no {
+    width: 100%;
+  }
+  .submission-box label {
+    width: 35%;
+  }
 }
 
 /* Mobile responsive footer */
@@ -493,15 +606,6 @@ footer-logo span {
 
   .footer-links {
     gap: 20px;
-  }
-
-  .footer-links a {
-    font-size: 14px;
-  }
-
-  .footer-bottom {
-    font-size: 12px;
-    text-align: center;
   }
 }
 
@@ -518,7 +622,7 @@ footer-logo span {
     page-break-after: always;
     width: 100%;
     margin: 0;
-    padding: 10mm;;
+    padding: 10mm;
   }
 
   .watermark {
@@ -554,4 +658,3 @@ footer-logo span {
     display: none;
   }
 }
-
