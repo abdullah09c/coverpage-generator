@@ -51,6 +51,12 @@ function addRow() {
   
   // Create new row
   const newRow = document.createElement('tr');
+  
+  // Add page break class if serial number is 15 or greater
+  if (rowCounter >= 15) {
+    newRow.classList.add('page-break-before');
+  }
+  
   newRow.innerHTML = `
     <td><input type="text" class="table-input serial-input" value="${serialNumber}" readonly /></td>
     <td><textarea class="table-input experiment-name" placeholder="Enter experiment name..." rows="1"></textarea></td>
@@ -109,6 +115,13 @@ function updateSerialNumbers() {
     const serialInput = row.querySelector('.serial-input');
     const newSerial = String(index + 1).padStart(2, '0');
     serialInput.value = newSerial;
+    
+    // Add or remove page break class based on serial number
+    if (index + 1 >= 15) {
+      row.classList.add('page-break-before');
+    } else {
+      row.classList.remove('page-break-before');
+    }
   });
   
   // Update counter
@@ -189,6 +202,9 @@ document.addEventListener('DOMContentLoaded', function() {
       adjustTextareaHeight(element);
     }
   });
+
+  // Apply page breaks to existing rows if needed
+  updateSerialNumbers();
   
   console.log('Index page JavaScript loaded successfully!');
 });
