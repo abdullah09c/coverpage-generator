@@ -52,8 +52,8 @@ function addRow() {
   // Create new row
   const newRow = document.createElement('tr');
   
-  // Add page break class if serial number is 15 or greater
-  if (rowCounter >= 15) {
+  // Add page break class only if serial number is exactly 15
+  if (rowCounter === 15) {
     newRow.classList.add('page-break-before');
   }
   
@@ -116,11 +116,12 @@ function updateSerialNumbers() {
     const newSerial = String(index + 1).padStart(2, '0');
     serialInput.value = newSerial;
     
-    // Add or remove page break class based on serial number
-    if (index + 1 >= 15) {
+    // Remove existing page break classes first
+    row.classList.remove('page-break-before');
+    
+    // Add page break class only if serial number is exactly 15
+    if (index + 1 === 15) {
       row.classList.add('page-break-before');
-    } else {
-      row.classList.remove('page-break-before');
     }
   });
   

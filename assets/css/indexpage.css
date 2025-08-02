@@ -581,6 +581,7 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
     overflow: visible !important;
     box-sizing: border-box !important;
     background: white !important;
+    page-break-inside: avoid;
   }
 
   .table-container {
@@ -595,12 +596,14 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
     border-collapse: collapse !important;
     background: white !important;
     page-break-inside: auto;
+    margin: 0 !important;
   }
 
   #indexTable th,
   #indexTable td {
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+    page-break-inside: avoid;
   }
 
   textarea.experiment-name {
@@ -631,6 +634,17 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
     width: 20% !important;
   }
 
+  /* Set page margins for print */
+  @page {
+    size: A4;
+    margin: 15mm 0 0 0;
+  }
+
+  /* Override for first page */
+  @page :first {
+    margin: 0;
+  }
+
   /* Page break for rows starting from serial number 15 */
   tr.page-break-before {
     page-break-before: always !important;
@@ -643,6 +657,21 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
 
   #indexTable tbody {
     display: table-row-group;
+  }
+
+  /* Adjust container padding for print to account for page margins */
+  .indexpage-container {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 15mm 15mm 15mm 15mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: none !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    background: white !important;
+    page-break-inside: avoid;
   }
 }
 
