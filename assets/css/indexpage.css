@@ -302,7 +302,6 @@ input.table-input {
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-  /* padding: 6px 10px; */
   border-radius: 3px;
   transition: all 0.2s ease;
   line-height: 1;
@@ -548,6 +547,11 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
 @media print {
   @page {
     size: A4;
+    margin: 15mm 0 0 0;
+  }
+
+  /* Override for first page */
+  @page :first {
     margin: 0;
   }
 
@@ -634,17 +638,6 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
     width: 20% !important;
   }
 
-  /* Set page margins for print */
-  @page {
-    size: A4;
-    margin: 15mm 0 0 0;
-  }
-
-  /* Override for first page */
-  @page :first {
-    margin: 0;
-  }
-
   /* Page break for rows starting from serial number 15 */
   tr.page-break-before {
     page-break-before: always !important;
@@ -657,21 +650,6 @@ textarea.experiment-name::-webkit-scrollbar-thumb:hover {
 
   #indexTable tbody {
     display: table-row-group;
-  }
-
-  /* Adjust container padding for print to account for page margins */
-  .indexpage-container {
-    width: 210mm !important;
-    max-width: 210mm !important;
-    min-height: 297mm !important;
-    padding: 15mm 15mm 15mm 15mm !important;
-    margin: 0 auto !important;
-    box-shadow: none !important;
-    border: none !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-    background: white !important;
-    page-break-inside: avoid;
   }
 }
 

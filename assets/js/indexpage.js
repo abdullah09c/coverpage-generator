@@ -186,22 +186,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Initialize existing textareas and convert inputs to textareas if needed
-  document.querySelectorAll('.experiment-name').forEach(element => {
-    if (element.tagName === 'INPUT') {
-      // Convert input to textarea
-      const textarea = document.createElement('textarea');
-      textarea.className = element.className;
-      textarea.value = element.value;
-      textarea.placeholder = element.placeholder || 'Enter experiment name...';
-      textarea.rows = 1;
-      
-      // Replace input with textarea
-      element.parentNode.replaceChild(textarea, element);
-      adjustTextareaHeight(textarea);
-    } else if (element.tagName === 'TEXTAREA') {
-      adjustTextareaHeight(element);
-    }
+  // Initialize existing textareas
+  document.querySelectorAll('.experiment-name').forEach(textarea => {
+    adjustTextareaHeight(textarea);
   });
 
   // Apply page breaks to existing rows if needed
