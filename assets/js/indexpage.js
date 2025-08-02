@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Auto-adjust textarea heights
   function adjustTextareaHeight(textarea) {
     textarea.style.height = 'auto';
-    textarea.style.height = Math.max(textarea.scrollHeight, 40) + 'px';
+    textarea.style.height = textarea.scrollHeight + 'px';
   }
 
   // Make adjustTextareaHeight globally available
