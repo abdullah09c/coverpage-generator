@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Index Page Generator</title>
+  <link rel="stylesheet" href="assets/css/indexpage.css" />
+  <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
+</head>
+
+<body>
+  <header class="print-hide">
+    <div class="logo-title">
+      <img src="assets/images/logo.png" alt="College Logo" class="logo" />
+      <div class="title-text">
+        <h1>Textile Engineering College, Noakhali</h1>
+        <p>Begumganj, Noakhali, Bangladesh</p>
+      </div>
+    </div>
+    <div class="nav-container">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="#contributor">👥 Contributors</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="indexpage-container">
+      <div class="table-container">
+        <table id="indexTable">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Experiment Name</th>
+              <th>Page</th>
+              <th class="action-column print-hide">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr>
+              <td><input type="text" class="table-input serial-input" value="01" readonly /></td>
+              <td><textarea class="table-input experiment-name" rows="1">Introduction to Textile Fibers and Their Properties</textarea></td>
+              <td><input type="text" class="table-input page-input" value="01-05" /></td>
+              <td class="action-column print-hide"><button class="delete-btn" onclick="deleteRow(this)">×</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="table-input serial-input" value="02" readonly /></td>
+              <td><textarea class="table-input experiment-name" rows="1">Study of Cotton Fiber Structure and Characteristics</textarea></td>
+              <td><input type="text" class="table-input page-input" value="06-10" /></td>
+              <td class="action-column print-hide"><button class="delete-btn" onclick="deleteRow(this)">×</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="table-input serial-input" value="03" readonly /></td>
+              <td><textarea class="table-input experiment-name" rows="1">Analysis of Synthetic Fibers Manufacturing Process</textarea></td>
+              <td><input type="text" class="table-input page-input" value="11-15" /></td>
+              <td class="action-column print-hide"><button class="delete-btn" onclick="deleteRow(this)">×</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="table-input serial-input" value="04" readonly /></td>
+              <td><textarea class="table-input experiment-name" rows="1">Yarn Production Techniques and Quality Testing</textarea></td>
+              <td><input type="text" class="table-input page-input" value="16-20" /></td>
+              <td class="action-column print-hide"><button class="delete-btn" onclick="deleteRow(this)">×</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="table-input serial-input" value="05" readonly /></td>
+              <td><textarea class="table-input experiment-name" rows="1">Fabric Weaving Patterns and Construction Methods</textarea></td>
+              <td><input type="text" class="table-input page-input" value="21-25" /></td>
+              <td class="action-column print-hide"><button class="delete-btn" onclick="deleteRow(this)">×</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="table-controls print-hide">
+        <button class="add-row-btn" onclick="addRow()">📋 Add Row</button>
+      </div>
+      
+      <div class="button-container print-hide">
+        <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
+        <button class="print-btn" onclick="printPage()">🖨️ Print</button>
+      </div>
+  </main>
+
+  <footer class="print-hide">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images/nanitex.png" alt="TEC Logo" />
+        <span>NaniteX</span>
+      </div>
+      <p>A Software Solution Company</p>
+      <div class="footer-bottom">
+        <span>© 2025 NaniteX</span>
+        <span>•</span>
+        <span>Made for TECN</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="assets/js/indexpage.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
